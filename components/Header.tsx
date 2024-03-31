@@ -5,11 +5,11 @@ import { ModeToggle } from './theme-toggle';
 
 export default function Header() {
   return (
-    <div className='flex justify-between items-center'>
+    <div className="flex items-center justify-between">
       <div>
         <BookIcon />
       </div>
-      <div className='flex gap-4 h-10 items-center'>
+      <div className="flex h-10 items-center gap-4">
         <SelectFont />
         <Separator orientation="vertical" />
         <ModeToggle />
