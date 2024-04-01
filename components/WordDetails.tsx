@@ -61,7 +61,7 @@ export const WordDetails: FC<WordDetailsProps> = ({ word }) => {
                           <Show>
                             <Show.When isTrue={!!definition.example}>
                               <p className="my-1 ml-10 text-gray-500">
-                                "{definition.example}"
+                                &quot;{definition.example}&quot;
                               </p>
                             </Show.When>
                           </Show>
