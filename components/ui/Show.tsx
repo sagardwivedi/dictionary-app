@@ -30,8 +30,6 @@ export function Show({ children }: ShowProps): ReactNode {
   return when || otherwise;
 }
 
-Show.displayName = 'Show';
-
 /**
  * Props for the ShowWhen component.
  */

@@ -5,15 +5,14 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export async function getWord(
-  value: string,
-  language: string = 'en',
-): Promise<{
+interface ResponseData {
   error?: ErrorMessage;
   data?: WordEntry;
-}> {
+}
+
+export async function getWord(value: string): Promise<ResponseData> {
   const response = await fetch(
-    `https://api.dictionaryapi.dev/api/v2/entries/${language}/${value.toLowerCase()}`,
+    `https://api.dictionaryapi.dev/api/v2/entries/en/${value.toLowerCase()}`,
   );
 
   if (response.status === 404) {

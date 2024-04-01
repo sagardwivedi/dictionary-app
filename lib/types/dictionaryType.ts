@@ -1,11 +1,6 @@
 interface Phonetic {
   audio: string;
   text: string;
-  sourceUrl?: string;
-  license?: {
-    name: string;
-    url: string;
-  };
 }
 
 interface Definition {
@@ -22,17 +17,11 @@ interface Meaning {
   antonyms: string[];
 }
 
-interface License {
-  name: string;
-  url: string;
-}
-
 interface WordEntry {
   word: string;
   phonetic: string;
   phonetics: Phonetic[];
   meanings: Meaning[];
-  license: License;
   sourceUrls: string[];
 }
 

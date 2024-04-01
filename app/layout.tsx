@@ -1,7 +1,8 @@
-import { FontProvider } from '@/components/font-provider';
-import { ThemeProvider } from '@/components/theme-provider';
-import '@/styles/globals.css';
 import type { Metadata } from 'next';
+
+import { FontProvider } from '@/lib/providers/font-provider';
+import { ThemeProvider } from '@/lib/providers/theme-provider';
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Dictionary App',

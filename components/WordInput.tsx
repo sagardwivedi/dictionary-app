@@ -2,11 +2,11 @@
 
 import { FormEventHandler, useState } from 'react';
 
-import { Show } from '@/components/Show';
-import { Input } from '@/components/ui/input';
+import { ErrorComponent } from '@/components/ErrorMessage';
+import { WordDetails } from '@/components/WordDetails';
+import { Show } from '@/components/ui/Show';
 import { getWord } from '@/lib/utils';
-import { ErrorComponent } from './ErrorMessage';
-import { WordDetails } from './WordDetails';
+import { SearchIcon } from 'lucide-react';
 
 export default function WordInput() {
   const [value, setValue] = useState('');
@@ -23,13 +23,20 @@ export default function WordInput() {
   return (
     <div className="space-y-12">
       <form onSubmit={handleSubmit}>
-        <Input
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          type="search"
-          className="rounded-sm p-5"
-        />
+        <div className="flex flex-row items-center rounded-sm bg-gray-200 px-4 dark:bg-gray-900">
+          <input
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            type="text"
+            id="word"
+            name="word"
+            className="w-full bg-inherit py-4 focus:outline-none"
+            min={1}
+          />
+          <SearchIcon className="text-primary" />
+        </div>
       </form>
+
       <div>
         <Show>
           <Show.When isTrue={!!error}>
@@ -38,6 +45,11 @@ export default function WordInput() {
           <Show.When isTrue={!!word}>
             <WordDetails word={word} />
           </Show.When>
+          <Show.Else>
+            <div className="flex items-center justify-center">
+              <h1>Unlock Understanding: Explore Unknown Words</h1>
+            </div>
+          </Show.Else>
         </Show>
       </div>
     </div>
